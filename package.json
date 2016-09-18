@@ -1,0 +1,52 @@
+{
+  "name": "preview-card",
+  "version": "1.0.0",
+  "description": "A sizable, skinnable tile that provides a button for modal display of overflowed content when it's present.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "prebuild": "tsc",
+    "build": "webpack --config webpack.dist.config.js",
+    "postbuild": "webpack --config webpack.example.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wakecoder/preview-card.git"
+  },
+  "keywords": [
+    "preview",
+    "tile",
+    "auto",
+    "overflow",
+    "auto-overflow",
+    "preview-card",
+    "card",
+    "javascript",
+    "js",
+    "css",
+    "html",
+    "vuestrap",
+    "vue",
+    "vuejs",
+    "preview-card",
+    "modal"
+  ],
+  "author": "wakecoder",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wakecoder/preview-card/issues"
+  },
+  "homepage": "https://github.com/wakecoder/preview-card#readme",
+  "dependencies": {
+    "typescript": "^1.8.10"
+  },
+  "devDependencies": {
+    "css-loader": "^0.25.0",
+    "html-loader": "^0.4.4",
+    "style-loader": "^0.13.1",
+    "tape": "^4.6.0",
+    "typescript": "^1.8.10",
+    "vue": "^1.0.26",
+    "webpack": "^1.13.2"
+  }
+}

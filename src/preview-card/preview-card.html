@@ -1,0 +1,25 @@
+<div @click="click" @mouseover="mouseOver" @mouseleave="mouseLeave" class="preview-card-container">
+    <h2 class="preview-card-header" v-if="!hideHeader">{{ header }}</h2>
+    <div class="animated preview-card-front" :style="{
+        width: width,
+        height: height
+        }" v-if="isFrontVisible" :transition="transition">
+        <slot name="front"></slot>
+    </div>
+    <div class="animated preview-card-back" :style="{
+        width: width,
+        height: height,
+        position: 'relative'
+        }" v-show="!isFrontVisible" :transition="transition">
+        <summary :width.sync="width" :height.sync="height">
+                <slot name="back" slot="content"></slot>
+        </summary>
+    </div>
+    <div class="preview-card-footer" v-if="!hideFooter" :style="{
+        width: width,
+        overflow: 'auto'
+        }">
+        <span class="preview-card-footer-text" style="float: left;"> {{ footer }} </span>
+        <span class="preview-card-footer-button" style="float: right;"> {{ buttonLabel }} </span>
+    </div>
+</div>
