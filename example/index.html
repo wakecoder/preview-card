@@ -5,14 +5,45 @@
     <title> preview-card demo</title>
 </head>
 
-<body>
+<body style="background-color: black;">
     <div id="exampleApp">
         <preview-card header="Montenegro" footer="The country of Montenegro" front-title="Photo" back-title="Details" width="384px"
             height="512px">
             <div slot="front">
                 <img src="http://paradiseintheworld.com/wp-content/uploads/2012/02/montenegro-beach.jpg" width="384" height="512">
             </div>
-            <div slot="back">
+            <div slot="back" style="margin-left: 10px;">
+                <h4>Stuff</h4>
+                <p>You can put anything you want in here. If it overflows, a gradient opacity mask will be displayed along with
+                    a "more" button</p>
+                <p><strong>When you click the "more" button a modal with all of the content will be displayed</strong></p>
+                <p>Cool, huh?</p>
+                <br><br> Lorem Ipsum for overflow:<br>
+                <p>
+                    Lorem ipsum dolor sit amet, te duo odio legimus consequuntur, autem reque contentiones pro ea. Tota fierent appellantur at
+                    eos, et cum delectus deserunt recusabo. Ut eos quem novum erant. Melius officiis persecuti mei et, te
+                    eam habeo dolorem. Etiam iusto tamquam cu vim. Insolens expetenda efficiendi eu vix, eum in munere minimum
+                    verterem, ea summo pertinacia percipitur sed. Mutat molestiae has eu, ne fugit referrentur vim, aperiri
+                    elaboraret contentiones ad has. Denique intellegebat sit ei, pro ut dicant aeterno constituto, vel wisi
+                    quando periculis ei. Pri aliquam eloquentiam ad. Eam ei assum facete rationibus, sea iudico tation oblique
+                    ei, nec rebum choro quidam ea. Ipsum summo inimicus ad pri, id laudem bonorum perfecto vel. Per elitr
+                    intellegam ad, torquatos dissentiet ei nam, vel ei amet illum. Cum ex error omittantur, eu dictas iuvaret
+                    civibus mei, mel docendi nostrum cu. Illud viderer sea ex, ei tation impetus vis. Eam iracundia consequat
+                    eu. Volumus suavitate vituperata sed cu. Eam an possim saperet lucilius, denique suscipit an eos. Te
+                    est prima corpora adolescens, eum aliquid praesent et. Solum accumsan vis ex, facete dissentiet mei ut.
+                    At offendit comprehensam quo, consulatu reprimique id nec. Ad nec semper imperdiet, lucilius perpetua
+                    et eam. Id tation tantas pro, ea vidit neglegentur vim. Mea te paulo clita, ne nec vide aliquip explicari,
+                    cu vel voluptaria consetetur. No qui atqui accumsan deseruisse, et nonumy omnesque conclusionemque has.
+                    Eam tamquam conceptam ex, id nibh commune pro, usu at vivendo dolores disputationi.
+                </p>
+            </div>
+        </preview-card>
+        <preview-card header="Maine, U.S.A." footer="The state of Maine" front-title="Photo" back-title="Details" width="384px"
+            height="512px">
+            <div slot="front">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Squirrel_Point_Maine_Lighthouse_detail.jpg" width="384" height="512">
+            </div>
+            <div slot="back" style="margin-left: 10px;">
                 <h4>Stuff</h4>
                 <p>You can put anything you want in here. If it overflows, a gradient opacity mask will be displayed along with
                     a "more" button</p>
