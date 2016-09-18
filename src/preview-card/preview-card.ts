@@ -1,5 +1,6 @@
 declare var require: any;
 const Vue = require ('vue');
+const animations = require ("src/preview-card/animate.css");
 const style = require ("src/preview-card/preview-card.css");
 import {default as Modal} from '../modal/modal';
 import {default as Summary} from '../summary/summary';
@@ -52,7 +53,7 @@ const PreviewCard = {
         },
         fade: {
             enterClass: "fadeInDown",
-            leaveClas: "deleted"
+            leaveClass: "deleted"
         }
     },
     components: {

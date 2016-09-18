@@ -1,3 +1,6 @@
+.deleted {
+    display: none;
+}
 
 .preview-card-container {
     margin-bottom: 60px;
@@ -29,11 +32,13 @@
 
 .preview-card-back {
     background-color: #CCCCCC;
+    overflow: hidden;
 }
 
 .preview-card-front {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
+    overflow: hidden;
 }
 
 .preview-card-header {
