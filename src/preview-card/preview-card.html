@@ -10,7 +10,7 @@
         width: width,
         height: height,
         position: 'relative'
-        }" v-show="!isFrontVisible" :transition="transition">
+        }" v-if="!isFrontVisible" :transition="transition">
         <summary :width.sync="width" :height.sync="height">
                 <slot name="back" slot="content"></slot>
         </summary>

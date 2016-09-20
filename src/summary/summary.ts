@@ -1,6 +1,7 @@
 declare var require: any;
 const Vue = require ('vue');
 import {default as Modal} from '../modal/modal';
+const style = require ('src/summary/summary.css');
 
 const Summary = {
     template: require ('src/summary/summary.html'),

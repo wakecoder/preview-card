@@ -6,7 +6,7 @@
     }">
     <slot name="content"></slot>
     <!--A gradient transparency mask to fade out text if we're overflowed.-->
-    <div class="summary-mask" v-bind:style=" {
+    <div v-if="isOverflowed && !isModalVisible" class="summary-mask" v-bind:style=" {
             position: 'absolute',
             top: '0px',
             width: width,

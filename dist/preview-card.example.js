@@ -65,9 +65,9 @@
 	var animations = __webpack_require__(4);
 	var style = __webpack_require__(8);
 	var modal_1 = __webpack_require__(10);
-	var summary_1 = __webpack_require__(12);
+	var summary_1 = __webpack_require__(14);
 	var PreviewCard = {
-	    template: __webpack_require__(14),
+	    template: __webpack_require__(18),
 	    data: function () {
 	        return {
 	            isFrontVisible: true,
@@ -10755,7 +10755,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".deleted {\r\n    display: none;\r\n}\r\n\r\n.preview-card-container {\r\n    margin-bottom: 60px;\r\n    display: inline-block;\r\n}\r\n\r\n.preview-card-footer-text {\r\n    font-size: large;\r\n    margin-top: .25em;\r\n    color: #DBDBDB;\r\n}\r\n\r\n.preview-card-footer-button {\r\n    background-color: #ed952b;\r\n    padding: 4px 20px 4px 20px;\r\n    color: black;\r\n    font-weight: bold;\r\n    cursor: pointer;\r\n    border-left-width: 1px;\r\n    border-left-style: solid;\r\n}\r\n\r\n.preview-card-footer {\r\n    border-bottom-left-radius: 4px;\r\n    border-bottom-right-radius: 4px;\r\n    background-color: #191919;\r\n\r\n}\r\n\r\n.preview-card-back {\r\n    background-color: #CCCCCC;\r\n    overflow: hidden;\r\n}\r\n\r\n.preview-card-front {\r\n    border-top-left-radius: 4px;\r\n    border-top-right-radius: 4px;\r\n    overflow: hidden;\r\n}\r\n\r\n.preview-card-header {\r\n    color: #a2a0a0;\r\n    font-size: 2em;\r\n    line-height: 20px;\r\n}", ""]);
+	exports.push([module.id, ".deleted {\r\n    display: none;\r\n}\r\n\r\n.preview-card-container {\r\n    margin-bottom: 60px;\r\n    display: inline-block;\r\n    background-color: #494949;\r\n    border-top-left-radius: 10px;\r\n    border-top-right-radius: 10px;\r\n}\r\n\r\n.preview-card-footer-text {\r\n    font-size: large;\r\n    margin-top: .25em;\r\n    color: #DBDBDB;\r\n}\r\n\r\n.preview-card-footer-button {\r\n    background-color: #ed952b;\r\n    padding: 4px 20px 4px 20px;\r\n    color: black;\r\n    font-weight: bold;\r\n    cursor: pointer;\r\n    border-left-width: 1px;\r\n    border-left-style: solid;\r\n}\r\n\r\n.preview-card-footer {\r\n    border-bottom-left-radius: 4px;\r\n    border-bottom-right-radius: 4px;\r\n    background-color: #191919;\r\n\r\n}\r\n\r\n.preview-card-back {\r\n    background-color: #CCCCCC;\r\n    overflow: hidden;\r\n}\r\n\r\n.preview-card-front {\r\n    border-top-left-radius: 4px;\r\n    border-top-right-radius: 4px;\r\n    overflow: hidden;\r\n}\r\n\r\n.preview-card-header {\r\n    color: #a2a0a0;\r\n    font-size: 2em;\r\n    line-height: 20px;\r\n}", ""]);
 	
 	// exports
 
@@ -10766,8 +10766,9 @@
 
 	"use strict";
 	var Vue = __webpack_require__(2);
+	var style = __webpack_require__(11);
 	var Modal = {
-	    template: __webpack_require__(11),
+	    template: __webpack_require__(13),
 	    props: {
 	        show: {
 	            type: Boolean,
@@ -10782,19 +10783,60 @@
 
 /***/ },
 /* 11 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<div class=\"modal-mask\" v-show=\"show\" transition=\"modal\">\r\n    <div class=\"modal-wrapper\">\r\n        <div class=\"modal-container\">\r\n            <div class=\"modal-body\">\r\n                <slot name=\"body\">\r\n                    No Data Available\r\n                </slot>\r\n            </div>\r\n            <div class=\"modal-footer\">\r\n                <button class=\"modal-default-button btn\" @click=\"show = false\">\r\n              Close\r\n            </button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(12);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(7)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./modal.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./modal.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
 
 /***/ },
 /* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
+	exports = module.exports = __webpack_require__(6)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".modal-mask {\r\n  position: fixed;\r\n  z-index: 9998;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-color: rgba(0, 0, 0, .5);\r\n  display: table;\r\n  transition: opacity .3s ease;\r\n}\r\n\r\n.modal-wrapper {\r\n  display: table-cell;\r\n  vertical-align: middle;\r\n}\r\n\r\n.modal-container {\r\n  max-height: 100vh;\r\n  overflow-y: auto;\r\n  width: 80%;\r\n  margin: 0px auto;\r\n  padding: 20px 30px;\r\n  background-color: #fff;\r\n  border-radius: 2px;\r\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\r\n  transition: all .3s ease;\r\n  font-family: Helvetica, Arial, sans-serif;\r\n}\r\n\r\n.modal-header h3 {\r\n  margin-top: 0;\r\n  color: #42b983;\r\n}\r\n\r\n.modal-footer {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n}\r\n\r\n.modal-body {\r\n  margin: 20px 0;\r\n}\r\n\r\n/*\r\n * the following styles are auto-applied to elements with\r\n * v-transition=\"modal\" when their visiblity is toggled\r\n * by Vue.js.\r\n *\r\n * You can easily play with the modal transition by editing\r\n * these styles.\r\n */\r\n\r\n.modal-enter, .modal-leave {\r\n  opacity: 0;\r\n}\r\n\r\n.modal-enter .modal-container,\r\n.modal-leave .modal-container {\r\n  -webkit-transform: scale(1.1);\r\n  transform: scale(1.1);\r\n}", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 13 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"modal-mask\" v-show=\"show\" transition=\"modal\">\r\n    <div class=\"modal-wrapper\">\r\n        <div class=\"modal-container\">\r\n            <div class=\"modal-body\">\r\n                <slot name=\"body\">\r\n                    No Data Available\r\n                </slot>\r\n            </div>\r\n            <div class=\"modal-footer\">\r\n                <button class=\"modal-default-button btn\" @click=\"show = false\">\r\n              Close\r\n            </button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 	var Vue = __webpack_require__(2);
 	var modal_1 = __webpack_require__(10);
+	var style = __webpack_require__(15);
 	var Summary = {
-	    template: __webpack_require__(13),
+	    template: __webpack_require__(17),
 	    data: function () {
 	        return {
 	            isOverflowed: false,
@@ -10814,16 +10856,56 @@
 	//# sourceMappingURL=summary.js.map
 
 /***/ },
-/* 13 */
-/***/ function(module, exports) {
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<div class=\"summary-content\" v-bind:style=\"{\r\n    position: 'relative',\r\n    width: width,\r\n    height: height,\r\n    overflow: 'hidden'\r\n    }\">\r\n    <slot name=\"content\"></slot>\r\n    <!--A gradient transparency mask to fade out text if we're overflowed.-->\r\n    <div class=\"summary-mask\" v-bind:style=\" {\r\n            position: 'absolute',\r\n            top: '0px',\r\n            width: width,\r\n            height: height\r\n        }\">\r\n    </div>\r\n    <a v-if=\"isOverflowed && !isModalVisible\" v-on:click.stop=\"isModalVisible=true\" class=\"summary-btn\">\r\n               More\r\n    </a>\r\n    <modal :show.sync='isModalVisible'>\r\n        <div slot=\"body\">\r\n            <slot name=\"content\"></slot>\r\n        </div>\r\n    </modal>\r\n</div>";
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(16);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(7)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./summary.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./summary.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
 
 /***/ },
-/* 14 */
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(6)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\r\n.summary-mask {\r\n/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+52,ffffff+100&0+0,0+87,1+100 */\r\n\r\n/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+52,ffffff+100&0+0,0+77,1+100 */\r\n\r\n/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+52,ffffff+100&0+0,0+63,1+100 */\r\nbackground: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,0) 52%, rgba(255,255,255,0) 63%, rgba(255,255,255,1) 100%); /* FF3.6-15 */\r\nbackground: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,0) 52%,rgba(255,255,255,0) 63%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */\r\nbackground: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,0) 52%,rgba(255,255,255,0) 63%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\r\nfilter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */\r\n\r\n}\r\n\r\n.summary-content {\r\n    -webkit-box-shadow: -11px 16px 33px -12px rgba(0,0,0,0.25);\r\n    -moz-box-shadow: -11px 16px 33px -12px rgba(0,0,0,0.25);\r\n    box-shadow: -11px 16px 33px -12px rgba(0,0,0,0.25);\r\n    background-color: #fbfbfb;\r\n    border-radius: 4px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.summary-btn {  \r\n       position: absolute;\r\n    bottom: 0px;\r\n    right: 0px;\r\n    font-size: 1.5em;\r\n    padding-left: 5px;\r\n    cursor: pointer;\r\n    -webkit-border-radius: 6;\r\n    -moz-border-radius: 6;\r\n    border-radius: 6px;\r\n    color: #ed952b;\r\n    padding: 10px 20px 10px 20px;\r\n    text-decoration: none;\r\n    border-width: 1px;\r\n    padding: 4px;\r\n    margin: 10px;\r\n}\r\n\r\n.summary-btn:hover {\r\n  background: #4d4d4d;\r\n  text-decoration: none;\r\n}", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<div @click=\"click\" @mouseover=\"mouseOver\" @mouseleave=\"mouseLeave\" class=\"preview-card-container\">\r\n    <h2 class=\"preview-card-header\" v-if=\"!hideHeader\">{{ header }}</h2>\r\n    <div class=\"animated preview-card-front\" :style=\"{\r\n        width: width,\r\n        height: height\r\n        }\" v-if=\"isFrontVisible\" :transition=\"transition\">\r\n        <slot name=\"front\"></slot>\r\n    </div>\r\n    <div class=\"animated preview-card-back\" :style=\"{\r\n        width: width,\r\n        height: height,\r\n        position: 'relative'\r\n        }\" v-show=\"!isFrontVisible\" :transition=\"transition\">\r\n        <summary :width.sync=\"width\" :height.sync=\"height\">\r\n                <slot name=\"back\" slot=\"content\"></slot>\r\n        </summary>\r\n    </div>\r\n    <div class=\"preview-card-footer\" v-if=\"!hideFooter\" :style=\"{\r\n        width: width,\r\n        overflow: 'auto'\r\n        }\">\r\n        <span class=\"preview-card-footer-text\" style=\"float: left;\"> {{ footer }} </span>\r\n        <span class=\"preview-card-footer-button\" style=\"float: right;\"> {{ buttonLabel }} </span>\r\n    </div>\r\n</div>";
+	module.exports = "<div class=\"summary-content\" v-bind:style=\"{\r\n    position: 'relative',\r\n    width: width,\r\n    height: height,\r\n    overflow: 'hidden'\r\n    }\">\r\n    <slot name=\"content\"></slot>\r\n    <!--A gradient transparency mask to fade out text if we're overflowed.-->\r\n    <div v-if=\"isOverflowed && !isModalVisible\" class=\"summary-mask\" v-bind:style=\" {\r\n            position: 'absolute',\r\n            top: '0px',\r\n            width: width,\r\n            height: height\r\n        }\">\r\n    </div>\r\n    <a v-if=\"isOverflowed && !isModalVisible\" v-on:click.stop=\"isModalVisible=true\" class=\"summary-btn\">\r\n               More\r\n    </a>\r\n    <modal :show.sync='isModalVisible'>\r\n        <div slot=\"body\">\r\n            <slot name=\"content\"></slot>\r\n        </div>\r\n    </modal>\r\n</div>";
+
+/***/ },
+/* 18 */
+/***/ function(module, exports) {
+
+	module.exports = "<div @click=\"click\" @mouseover=\"mouseOver\" @mouseleave=\"mouseLeave\" class=\"preview-card-container\">\r\n    <h2 class=\"preview-card-header\" v-if=\"!hideHeader\">{{ header }}</h2>\r\n    <div class=\"animated preview-card-front\" :style=\"{\r\n        width: width,\r\n        height: height\r\n        }\" v-if=\"isFrontVisible\" :transition=\"transition\">\r\n        <slot name=\"front\"></slot>\r\n    </div>\r\n    <div class=\"animated preview-card-back\" :style=\"{\r\n        width: width,\r\n        height: height,\r\n        position: 'relative'\r\n        }\" v-if=\"!isFrontVisible\" :transition=\"transition\">\r\n        <summary :width.sync=\"width\" :height.sync=\"height\">\r\n                <slot name=\"back\" slot=\"content\"></slot>\r\n        </summary>\r\n    </div>\r\n    <div class=\"preview-card-footer\" v-if=\"!hideFooter\" :style=\"{\r\n        width: width,\r\n        overflow: 'auto'\r\n        }\">\r\n        <span class=\"preview-card-footer-text\" style=\"float: left;\"> {{ footer }} </span>\r\n        <span class=\"preview-card-footer-button\" style=\"float: right;\"> {{ buttonLabel }} </span>\r\n    </div>\r\n</div>";
 
 /***/ }
 /******/ ]);
