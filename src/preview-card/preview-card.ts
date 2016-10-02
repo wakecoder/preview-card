@@ -13,7 +13,7 @@ const PreviewCard = {
             buttonLabel: this.backTitle
         };
     },
-    props: ['header', 'footer', 'width', 'height', 'transition', 
+    props: ['width', 'height', 'transition', 
     'hide-footer', 'hide-header', 'front-title', 'back-title',
     'flip-on-hover'],
     methods: {

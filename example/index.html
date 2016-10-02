@@ -6,22 +6,22 @@
 </head>
 
 <body style="background-color: black;">
-    <div id="exampleApp">
-        <preview-card hide-header="true" hide-footer="true" transition="flip" width="384px" height="512px">
-            <div slot="front" style="background-color: #00bbbb; height: 100%; width: 100%">
-                <h3>Simple Front of Card</h3>
+    <div id="exampleApp" style="display: flex;">
+        <preview-card hide-header="true" hide-footer="true" transition="flip" width="150px" height="150px">
+            <div slot="front" style="background-color: #00bbbb; height: 100%; width: 100%; font-size: 1.5em; text-align: center;">
+                Front
             </div>
-            <div slot="back">
-                <h4>Simple Back of Card</h4>
+            <div slot="back" style="background-color: #CCCCCC; height: 100%; width: 100%; font-size: 1.5em; text-align: center;">
+                Back
             </div>
         </preview-card>
         <preview-card header="Montenegro" transition="fade" footer="The country of Montenegro" front-title="Photo" back-title="Details"
-            width="384px" height="512px">
+           width="200px" height="300px">
             <div slot="front">
-                <img src="http://paradiseintheworld.com/wp-content/uploads/2012/02/montenegro-beach.jpg" width="384" height="512">
+                <img src="http://paradiseintheworld.com/wp-content/uploads/2012/02/montenegro-beach.jpg" width="200px" height="300px">
             </div>
-            <div slot="back">
-                <h4>Stuff</h4>
+            <div slot="back" style="background-color: white;">
+                <span style="font-size:1.5em;">Stuff</span>
                 <p>You can put anything you want in here. If it overflows, a gradient opacity mask will be displayed along with
                     a "more" button</p>
                 <p><strong>When you click the "more" button a modal with all of the content will be displayed</strong></p>
@@ -47,12 +47,12 @@
             </div>
         </preview-card>
         <preview-card header="Maine, U.S.A." transition="zoom" footer="The state of Maine" front-title="Photo" back-title="Details"
-            width="384px" height="512px">
+            width="250px" height="150px">
             <div slot="front">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Squirrel_Point_Maine_Lighthouse_detail.jpg" width="384" height="512">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Squirrel_Point_Maine_Lighthouse_detail.jpg" width="250" height="150">
             </div>
-            <div slot="back">
-                <h4>Stuff</h4>
+            <div slot="back" style="background-color: white;">
+                <span style="font-size:1.5em;">Stuff</span>
                 <p>You can put anything you want in here. If it overflows, a gradient opacity mask will be displayed along with
                     a "more" button</p>
                 <p><strong>When you click the "more" button a modal with all of the content will be displayed</strong></p>
