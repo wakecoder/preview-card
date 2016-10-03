@@ -8,6 +8,7 @@ module.exports = {
         main: './preview-card/preview-card.js'
     },
     output: {
+        libraryTarget: "commonjs",
         path: __dirname + "/dist",
         filename: "[name].js"
     },

@@ -1,4 +1,4 @@
-/******/ (function(modules) { // webpackBootstrap
+(function(e, a) { for(var i in a) e[i] = a[i]; }(exports, /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 
@@ -114,7 +114,7 @@
 /* 1 */
 /***/ function(module, exports) {
 
-	module.exports = Vue;
+	module.exports = require("Vue");
 
 /***/ },
 /* 2 */
@@ -652,4 +652,4 @@
 	module.exports = "<div @click=\"click\" @mouseover=\"mouseOver\" @mouseleave=\"mouseLeave\" class=\"preview-card-container\">\r\n    <div class=\"animated preview-card-front\" :style=\"{\r\n        width: width,\r\n        height: height\r\n        }\" v-if=\"isFrontVisible\" :transition=\"transition\">\r\n        <slot name=\"front\" style=\"{\r\n            width: width,\r\n            heigh: height\r\n        }\"></slot>\r\n    </div>\r\n    <div class=\"animated preview-card-back\" :style=\"{\r\n        width: width,\r\n        height: height,\r\n        position: 'relative'\r\n        }\" v-if=\"!isFrontVisible\" :transition=\"transition\">\r\n        <summary :width.sync=\"width\" :height.sync=\"height\">\r\n            <slot name=\"back\" slot=\"content\"></slot>\r\n        </summary>\r\n    </div>\r\n</div>";
 
 /***/ }
-/******/ ]);
+/******/ ])));
