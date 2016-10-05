@@ -1,19 +1,19 @@
 <div @click="click" @mouseover="mouseOver" @mouseleave="mouseLeave" class="preview-card-container">
     <div class="animated preview-card-front" :style="{
-        width: width,
-        height: height
+        width: styleWidth,
+        height: styleHeight
         }" v-if="isFrontVisible" :transition="transition">
         <slot name="front" style="{
-            width: width,
-            heigh: height
+            width: styleWidth,
+            heigh: styleHeight
         }"></slot>
     </div>
     <div class="animated preview-card-back" :style="{
-        width: width,
-        height: height,
+        width: styleWidth,
+        height: styleHeight,
         position: 'relative'
         }" v-if="!isFrontVisible" :transition="transition">
-        <summary :width.sync="width" :height.sync="height">
+        <summary :width.sync="styleWidth" :height.sync="styleHeight">
             <slot name="back" slot="content"></slot>
         </summary>
     </div>

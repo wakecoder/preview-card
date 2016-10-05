@@ -1,9 +1,14 @@
 declare var require: any;
-const Vue = require ('vue');
-const animations = require ("src/preview-card/animate.css");
-const style = require ("src/preview-card/preview-card.css");
+const Vue = require('vue');
+const animations = require("src/preview-card/animate.css");
+const style = require("src/preview-card/preview-card.css");
 import {default as Modal} from '../modal/modal';
 import {default as Summary} from '../summary/summary';
+
+//Used if the user puts in a width or height without specifying pixels.
+function addPx(number) {
+    return number + 'px';
+}
 
 const PreviewCard = {
     template: require('src/preview-card/preview-card.html'),
@@ -13,9 +18,14 @@ const PreviewCard = {
             buttonLabel: this.backTitle
         };
     },
-    props: ['width', 'height', 'transition', 
-    'hide-footer', 'hide-header', 'front-title', 'back-title',
-    'flip-on-hover'],
+    props: {
+        width: null,
+        height: null,
+        transition: {
+            default: 'flip'
+        },
+        'flip-on-hover': false
+    },
     methods: {
         flip: function () {
             this.isFrontVisible = !this.isFrontVisible;
@@ -24,7 +34,7 @@ const PreviewCard = {
             if (!this.isFrontVisible) {
                 this.buttonLabel = this.frontTitle;
             }
-            else { 
+            else {
                 this.buttonLabel = this.backTitle;
             }
         },
@@ -35,11 +45,23 @@ const PreviewCard = {
         },
         mouseOver: function () {
             if (this.flipOnHover && this.isFrontVisible) {
-                 this.flip(); }
+                this.flip();
+            }
         },
         mouseLeave: function () {
-            if (this.flipOnHover && !this.isFrontVisible) { 
-                this.flip(); }
+            if (this.flipOnHover && !this.isFrontVisible) {
+                this.flip();
+            }
+        }
+    },
+    computed: {
+        styleWidth: function () { // By default, assume pixel width.
+            if (!isNaN(this.width)) { return addPx(this.width) };
+            return this.width;
+        },
+        styleHeight: function () { // By default assume pixel height
+            if (!isNaN(this.height)) { return addPx(this.height) };
+            return this.height
         }
     },
     transitions: {

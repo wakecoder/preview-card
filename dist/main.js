@@ -50,6 +50,9 @@
 	var style = __webpack_require__(6);
 	var modal_1 = __webpack_require__(8);
 	var summary_1 = __webpack_require__(12);
+	function addPx(number) {
+	    return number + 'px';
+	}
 	var PreviewCard = {
 	    template: __webpack_require__(16),
 	    data: function () {
@@ -58,9 +61,14 @@
 	            buttonLabel: this.backTitle
 	        };
 	    },
-	    props: ['width', 'height', 'transition',
-	        'hide-footer', 'hide-header', 'front-title', 'back-title',
-	        'flip-on-hover'],
+	    props: {
+	        width: null,
+	        height: null,
+	        transition: {
+	            default: 'flip'
+	        },
+	        'flip-on-hover': false
+	    },
 	    methods: {
 	        flip: function () {
 	            this.isFrontVisible = !this.isFrontVisible;
@@ -85,6 +93,22 @@
 	            if (this.flipOnHover && !this.isFrontVisible) {
 	                this.flip();
 	            }
+	        }
+	    },
+	    computed: {
+	        styleWidth: function () {
+	            if (!isNaN(this.width)) {
+	                return addPx(this.width);
+	            }
+	            ;
+	            return this.width;
+	        },
+	        styleHeight: function () {
+	            if (!isNaN(this.height)) {
+	                return addPx(this.height);
+	            }
+	            ;
+	            return this.height;
 	        }
 	    },
 	    transitions: {
@@ -649,7 +673,7 @@
 /* 16 */
 /***/ function(module, exports) {
 
-	module.exports = "<div @click=\"click\" @mouseover=\"mouseOver\" @mouseleave=\"mouseLeave\" class=\"preview-card-container\">\r\n    <div class=\"animated preview-card-front\" :style=\"{\r\n        width: width,\r\n        height: height\r\n        }\" v-if=\"isFrontVisible\" :transition=\"transition\">\r\n        <slot name=\"front\" style=\"{\r\n            width: width,\r\n            heigh: height\r\n        }\"></slot>\r\n    </div>\r\n    <div class=\"animated preview-card-back\" :style=\"{\r\n        width: width,\r\n        height: height,\r\n        position: 'relative'\r\n        }\" v-if=\"!isFrontVisible\" :transition=\"transition\">\r\n        <summary :width.sync=\"width\" :height.sync=\"height\">\r\n            <slot name=\"back\" slot=\"content\"></slot>\r\n        </summary>\r\n    </div>\r\n</div>";
+	module.exports = "<div @click=\"click\" @mouseover=\"mouseOver\" @mouseleave=\"mouseLeave\" class=\"preview-card-container\">\r\n    <div class=\"animated preview-card-front\" :style=\"{\r\n        width: styleWidth,\r\n        height: styleHeight\r\n        }\" v-if=\"isFrontVisible\" :transition=\"transition\">\r\n        <slot name=\"front\" style=\"{\r\n            width: styleWidth,\r\n            heigh: styleHeight\r\n        }\"></slot>\r\n    </div>\r\n    <div class=\"animated preview-card-back\" :style=\"{\r\n        width: styleWidth,\r\n        height: styleHeight,\r\n        position: 'relative'\r\n        }\" v-if=\"!isFrontVisible\" :transition=\"transition\">\r\n        <summary :width.sync=\"styleWidth\" :height.sync=\"styleHeight\">\r\n            <slot name=\"back\" slot=\"content\"></slot>\r\n        </summary>\r\n    </div>\r\n</div>";
 
 /***/ }
 /******/ ])));
