@@ -6,16 +6,16 @@
     }">
     <slot name="content"></slot>
     <!--A gradient transparency mask to fade out text if we're overflowed.-->
-    <div v-if="isOverflowed && !isModalVisible" class="summary-mask" v-bind:style=" {
+    <div v-if="isOverflowed && !isModalVisible" class="summary-mask" @click.stop="isModalVisible=true" v-bind:style=" {
             position: 'absolute',
-            top: '0px',
-            width: width,
-            height: height
+            bottom: '0px',
+            width: width
         }">
-    </div>
-    <a v-if="isOverflowed && !isModalVisible" v-on:click.stop="isModalVisible=true" class="summary-btn">
+        <a v-if="isOverflowed && !isModalVisible" class="summary-btn">
                More
-    </a>
+        </a>
+    </div>
+
     <modal :show.sync='isModalVisible'>
         <div slot="body">
             <slot name="content"></slot>
