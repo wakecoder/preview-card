@@ -57,11 +57,13 @@
 	    template: __webpack_require__(16),
 	    data: function () {
 	        return {
-	            isFrontVisible: true,
-	            buttonLabel: this.backTitle
+	            isFrontVisible: !this.oneSided ? true : false,
 	        };
 	    },
 	    props: {
+	        'one-sided': {
+	            default: false
+	        },
 	        width: null,
 	        height: null,
 	        transition: {
@@ -71,12 +73,8 @@
 	    },
 	    methods: {
 	        flip: function () {
-	            this.isFrontVisible = !this.isFrontVisible;
-	            if (!this.isFrontVisible) {
-	                this.buttonLabel = this.frontTitle;
-	            }
-	            else {
-	                this.buttonLabel = this.backTitle;
+	            if (!this.oneSided) {
+	                this.isFrontVisible = !this.isFrontVisible;
 	            }
 	        },
 	        click: function () {

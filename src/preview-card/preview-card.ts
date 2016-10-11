@@ -14,11 +14,13 @@ const PreviewCard = {
     template: require('src/preview-card/preview-card.html'),
     data: function () {
         return {
-            isFrontVisible: true,
-            buttonLabel: this.backTitle
+            isFrontVisible: !this.oneSided ? true : false,
         };
     },
     props: {
+        'one-sided': {
+            default: false
+        },
         width: null,
         height: null,
         transition: {
@@ -28,14 +30,8 @@ const PreviewCard = {
     },
     methods: {
         flip: function () {
-            this.isFrontVisible = !this.isFrontVisible;
-
-            //Make the button show the title of the side not being displayed.
-            if (!this.isFrontVisible) {
-                this.buttonLabel = this.frontTitle;
-            }
-            else {
-                this.buttonLabel = this.backTitle;
+            if (!this.oneSided) {
+                this.isFrontVisible = !this.isFrontVisible;
             }
         },
         click: function () {
