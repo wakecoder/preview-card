@@ -1,4 +1,7 @@
-<div @click="click" @mouseover="mouseOver" @mouseleave="mouseLeave" class="preview-card-container">
+<div @click="click" @mouseover="mouseOver" @mouseleave="mouseLeave" class="preview-card-container"
+    :style="{ 
+        cursor: !oneSided ? 'pointer' : null
+    }">
     <div class="animated preview-card-front" :style="{
         width: styleWidth,
         height: styleHeight

@@ -10777,7 +10777,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".deleted {\r\n    display: none;\r\n}\r\n\r\n.preview-card-container {\r\n    margin-bottom: 60px;\r\n    display: inline-block;\r\n    background: transparent;\r\n    border-top-left-radius: 10px;\r\n    border-top-right-radius: 10px;\r\n    cursor: pointer;\r\n}\r\n\r\n.preview-card-back {\r\n    overflow: hidden;\r\n}\r\n\r\n.preview-card-front {\r\n    overflow: hidden;\r\n}", ""]);
+	exports.push([module.id, ".deleted {\r\n    display: none;\r\n}\r\n\r\n.preview-card-container {\r\n    margin-bottom: 60px;\r\n    display: inline-block;\r\n    background: transparent;\r\n    border-top-left-radius: 10px;\r\n    border-top-right-radius: 10px;\r\n}\r\n\r\n.preview-card-back {\r\n    overflow: hidden;\r\n}\r\n\r\n.preview-card-front {\r\n    overflow: hidden;\r\n}", ""]);
 	
 	// exports
 
@@ -10927,7 +10927,7 @@
 /* 18 */
 /***/ function(module, exports) {
 
-	module.exports = "<div @click=\"click\" @mouseover=\"mouseOver\" @mouseleave=\"mouseLeave\" class=\"preview-card-container\">\r\n    <div class=\"animated preview-card-front\" :style=\"{\r\n        width: styleWidth,\r\n        height: styleHeight\r\n        }\" v-if=\"isFrontVisible\" :transition=\"transition\">\r\n        <slot name=\"front\" style=\"{\r\n            width: styleWidth,\r\n            heigh: styleHeight\r\n        }\"></slot>\r\n    </div>\r\n    <div class=\"animated preview-card-back\" :style=\"{\r\n        width: styleWidth,\r\n        height: styleHeight,\r\n        position: 'relative'\r\n        }\" v-if=\"!isFrontVisible\" :transition=\"transition\">\r\n        <summary :width.sync=\"styleWidth\" :height.sync=\"styleHeight\">\r\n            <slot name=\"back\" slot=\"content\"></slot>\r\n        </summary>\r\n    </div>\r\n</div>";
+	module.exports = "<div @click=\"click\" @mouseover=\"mouseOver\" @mouseleave=\"mouseLeave\" class=\"preview-card-container\"\r\n    :style=\"{ \r\n        cursor: !oneSided ? 'pointer' : null\r\n    }\">\r\n    <div class=\"animated preview-card-front\" :style=\"{\r\n        width: styleWidth,\r\n        height: styleHeight\r\n        }\" v-if=\"isFrontVisible\" :transition=\"transition\">\r\n        <slot name=\"front\" style=\"{\r\n            width: styleWidth,\r\n            heigh: styleHeight\r\n        }\"></slot>\r\n    </div>\r\n    <div class=\"animated preview-card-back\" :style=\"{\r\n        width: styleWidth,\r\n        height: styleHeight,\r\n        position: 'relative'\r\n        }\" v-if=\"!isFrontVisible\" :transition=\"transition\">\r\n        <summary :width.sync=\"styleWidth\" :height.sync=\"styleHeight\">\r\n            <slot name=\"back\" slot=\"content\"></slot>\r\n        </summary>\r\n    </div>\r\n</div>";
 
 /***/ }
 /******/ ]);
