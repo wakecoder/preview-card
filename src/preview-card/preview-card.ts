@@ -35,17 +35,16 @@ const PreviewCard = {
             }
         },
         click: function () {
-            if (!this.flipOnHover) {
-                this.flip();
-            }
+            this.flip();
+            
         },
         mouseOver: function () {
-            if (this.flipOnHover && this.isFrontVisible) {
+            if (this.flipOnHover) {
                 this.flip();
             }
         },
         mouseLeave: function () {
-            if (this.flipOnHover && !this.isFrontVisible) {
+            if (this.flipOnHover) {
                 this.flip();
             }
         }
