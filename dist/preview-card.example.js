@@ -94,15 +94,16 @@
 	            }
 	        },
 	        click: function () {
+	            this.flipOnHover = false;
 	            this.flip();
 	        },
 	        mouseOver: function () {
-	            if (this.flipOnHover) {
+	            if (this.flipOnHover && this.isFrontVisible) {
 	                this.flip();
 	            }
 	        },
 	        mouseLeave: function () {
-	            if (this.flipOnHover) {
+	            if (this.flipOnHover && !this.isFrontVisible) {
 	                this.flip();
 	            }
 	        }
@@ -10925,7 +10926,7 @@
 /* 18 */
 /***/ function(module, exports) {
 
-	module.exports = "<div @click=\"click\" @mouseenter=\"mouseOver\" @mouseleave=\"mouseLeave\" class=\"preview-card-container\"\r\n    :style=\"{ \r\n        cursor: !oneSided ? 'pointer' : null\r\n    }\">\r\n    <div class=\"animated preview-card-front\" :style=\"{\r\n        width: styleWidth,\r\n        height: styleHeight\r\n        }\" v-if=\"isFrontVisible\" :transition=\"transition\">\r\n        <slot name=\"front\" style=\"{\r\n            width: styleWidth,\r\n            heigh: styleHeight\r\n        }\"></slot>\r\n    </div>\r\n    <div class=\"animated preview-card-back\" :style=\"{\r\n        width: styleWidth,\r\n        height: styleHeight,\r\n        position: 'relative'\r\n        }\" v-if=\"!isFrontVisible\" :transition=\"transition\">\r\n        <summary :width.sync=\"styleWidth\" :height.sync=\"styleHeight\">\r\n            <slot name=\"back\" slot=\"content\"></slot>\r\n        </summary>\r\n    </div>\r\n</div>";
+	module.exports = "<div @click=\"click\" @mouseover=\"mouseOver\" @mouseleave=\"mouseLeave\" class=\"preview-card-container\"\r\n    :style=\"{ \r\n        cursor: !oneSided ? 'pointer' : null\r\n    }\">\r\n    <div class=\"animated preview-card-front\" :style=\"{\r\n        width: styleWidth,\r\n        height: styleHeight\r\n        }\" v-if=\"isFrontVisible\" :transition=\"transition\">\r\n        <slot name=\"front\" style=\"{\r\n            width: styleWidth,\r\n            heigh: styleHeight\r\n        }\"></slot>\r\n    </div>\r\n    <div class=\"animated preview-card-back\" :style=\"{\r\n        width: styleWidth,\r\n        height: styleHeight,\r\n        position: 'relative'\r\n        }\" v-if=\"!isFrontVisible\" :transition=\"transition\">\r\n        <summary :width.sync=\"styleWidth\" :height.sync=\"styleHeight\">\r\n            <slot name=\"back\" slot=\"content\"></slot>\r\n        </summary>\r\n    </div>\r\n</div>";
 
 /***/ }
 /******/ ]);

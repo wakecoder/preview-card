@@ -35,16 +35,17 @@ const PreviewCard = {
             }
         },
         click: function () {
+            this.flipOnHover = false; //Disable hover flipping if the user clicks
             this.flip();
             
         },
         mouseOver: function () {
-            if (this.flipOnHover) {
+            if (this.flipOnHover && this.isFrontVisible) {
                 this.flip();
             }
         },
         mouseLeave: function () {
-            if (this.flipOnHover) {
+            if (this.flipOnHover && !this.isFrontVisible) {
                 this.flip();
             }
         }
