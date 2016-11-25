@@ -2,15 +2,15 @@ declare var require: any;
 const Vue = require('vue');
 const animations = require("src/preview-card/animate.css");
 const style = require("src/preview-card/preview-card.css");
-import {default as Modal} from '../modal/modal';
-import {default as Summary} from '../summary/summary';
+import {modal} from '../modal/modal';
+import {summary} from '../summary/summary';
 
 //Used if the user puts in a width or height without specifying pixels.
 function addPx(number) {
     return number + 'px';
 }
 
-export default {
+export const previewCard = {
     template: require('src/preview-card/preview-card.html'),
     data: function () {
         return {
@@ -75,7 +75,7 @@ export default {
         }
     },
     components: {
-        modal: Modal,
-        summary: Summary
+        modal: modal,
+        summary: summary
     }
 };

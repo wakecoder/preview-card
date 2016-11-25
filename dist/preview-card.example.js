@@ -51,7 +51,7 @@
 	    el: "#exampleApp",
 	    data: {},
 	    components: {
-	        "preview-card": preview_card_1.default
+	        "preview-card": preview_card_1.previewCard
 	    }
 	});
 	//# sourceMappingURL=example.js.map
@@ -69,8 +69,7 @@
 	function addPx(number) {
 	    return number + 'px';
 	}
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.default = {
+	exports.previewCard = {
 	    template: __webpack_require__(18),
 	    data: function () {
 	        return {
@@ -140,8 +139,8 @@
 	        }
 	    },
 	    components: {
-	        modal: modal_1.default,
-	        summary: summary_1.default
+	        modal: modal_1.modal,
+	        summary: summary_1.summary
 	    }
 	};
 	//# sourceMappingURL=preview-card.js.map
@@ -10787,8 +10786,7 @@
 	"use strict";
 	var Vue = __webpack_require__(2);
 	var style = __webpack_require__(11);
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.default = {
+	exports.modal = {
 	    template: __webpack_require__(13),
 	    props: {
 	        show: {
@@ -10854,8 +10852,7 @@
 	var Vue = __webpack_require__(2);
 	var modal_1 = __webpack_require__(10);
 	var style = __webpack_require__(15);
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.default = {
+	exports.summary = {
 	    template: __webpack_require__(17),
 	    data: function () {
 	        return {
@@ -10868,7 +10865,7 @@
 	        this.isOverflowed = this.$el.scrollHeight > this.$el.clientHeight;
 	    },
 	    components: {
-	        modal: modal_1.default
+	        modal: modal_1.modal
 	    }
 	};
 	//# sourceMappingURL=summary.js.map
