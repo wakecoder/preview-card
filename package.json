@@ -1,6 +1,6 @@
 {
   "name": "preview-card",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A sizable, skinnable tile that provides a button for modal display of overflowed content when it's present.",
   "main": "dist/main.js",
   "files": ["dist/main.js","src/"],

@@ -3,7 +3,7 @@ const Vue = require ('vue');
 import {default as Modal} from '../modal/modal';
 const style = require ('src/summary/summary.css');
 
-const Summary = {
+export default{
     template: require ('src/summary/summary.html'),
     data: function () {
         return {
@@ -19,5 +19,3 @@ const Summary = {
         modal: Modal
     }
 };
-
-export default Summary;

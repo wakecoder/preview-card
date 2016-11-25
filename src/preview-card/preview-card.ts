@@ -10,7 +10,7 @@ function addPx(number) {
     return number + 'px';
 }
 
-const PreviewCard = {
+export default {
     template: require('src/preview-card/preview-card.html'),
     data: function () {
         return {
@@ -79,5 +79,3 @@ const PreviewCard = {
         summary: Summary
     }
 };
-
-export default PreviewCard

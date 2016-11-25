@@ -1,7 +1,7 @@
 declare var require: any;
 const Vue = require('vue');
 const style = require ("src/modal/modal.css");
-const Modal = {
+export default {
     template: require('src/modal/modal.html'),
     props: {
         show: {
@@ -11,5 +11,3 @@ const Modal = {
         }
     }
 };
-
-export default Modal;

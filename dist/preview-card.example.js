@@ -69,7 +69,8 @@
 	function addPx(number) {
 	    return number + 'px';
 	}
-	var PreviewCard = {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = {
 	    template: __webpack_require__(18),
 	    data: function () {
 	        return {
@@ -143,8 +144,6 @@
 	        summary: summary_1.default
 	    }
 	};
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.default = PreviewCard;
 	//# sourceMappingURL=preview-card.js.map
 
 /***/ },
@@ -10788,7 +10787,8 @@
 	"use strict";
 	var Vue = __webpack_require__(2);
 	var style = __webpack_require__(11);
-	var Modal = {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = {
 	    template: __webpack_require__(13),
 	    props: {
 	        show: {
@@ -10798,8 +10798,6 @@
 	        }
 	    }
 	};
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.default = Modal;
 	//# sourceMappingURL=modal.js.map
 
 /***/ },
@@ -10856,7 +10854,8 @@
 	var Vue = __webpack_require__(2);
 	var modal_1 = __webpack_require__(10);
 	var style = __webpack_require__(15);
-	var Summary = {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = {
 	    template: __webpack_require__(17),
 	    data: function () {
 	        return {
@@ -10872,8 +10871,6 @@
 	        modal: modal_1.default
 	    }
 	};
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.default = Summary;
 	//# sourceMappingURL=summary.js.map
 
 /***/ },

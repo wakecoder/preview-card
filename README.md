@@ -3,7 +3,7 @@ A sizable, skinnable Vue.js card component that provides a button for modal disp
 
 ## Demo
 
-Coming soon...
+Coming soon... In the meantime check out the example in example/index.html at https://github.com/wakecoder/preview-card
 
 ## Usage
 Install, require and put in your HTML.  See below for more detail:
@@ -15,12 +15,12 @@ npm install --save-dev preview-card
 ##### 2. In your code
 ``` javascript
 const Vue = require ('vue');
-const PreviewCard = require ("preview-card");
+import {previewCard} from "preview-card";
 const vue = new Vue ({
     el: "#app",
     data: {},
     components: {
-        "preview-card": PreviewCard
+        "preview-card": previewCard
     }
 })
 ```
