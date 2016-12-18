@@ -48,6 +48,9 @@ export const previewCard = {
             if (this.flipOnHover && !this.isFrontVisible) {
                 this.flip();
             }
+        },
+        touchStart: function () {
+            this.flipOnHover = false
         }
     },
     computed: {
