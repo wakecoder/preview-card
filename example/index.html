@@ -40,8 +40,15 @@
 </head>
 
 <body style="background-color: black;">
+<p>
+    The preview-card is a vuejs flip card component that automatically handles overflow. You can add the component to your project
+    by running 'npm install --save preview-card'.
+</p>
+<p> You can find more information and examples of how to use the preview-card flip card by hovering and clicking on the preview-card
+    examples below or by visiting the <a href="http://github.com/wakecoder">wakecoder github page </a>
+
     <div id="exampleApp" class="container">
-        <preview-card transition="flip" width="254" height="370">
+        <preview-card transition="flip" flip-on-hover="true" width="254" height="370">
             <div slot="front" class="card">
                 <img src="img/cat.png" width="254" height="300">
                 <div class="title">
@@ -50,22 +57,27 @@
             </div>
             <div slot="back" class="card">
                 <p>
-                    The domestic cat[1][5] (Latin: Felis catus) or the feral cat[5][3] (Latin: Felis silvestris catus) is a small, typically
-                    furry, carnivorous mammal. They are often called house cats when kept as indoor pets or simply cats when
-                    there is no need to distinguish them from other felids and felines.[6] Cats are often valued by humans
-                    for companionship and for their ability to hunt vermin. There are more than 70 cat breeds; different
-                    associations proclaim different numbers according to their standards. Cats are similar in anatomy to
-                    the other felids, with a strong, flexible body, quick reflexes, sharp retractable claws, and teeth adapted
-                    to killing small prey. Cat senses fit a crepuscular and predatory ecological niche. Cats can hear sounds
-                    too faint or too high in frequency for human ears, such as those made by mice and other small animals.
-                    They can see in near darkness. Like most other mammals, cats have poorer color vision and a better sense
-                    of smell than humans. Cats, despite being solitary hunters, are a social species and cat communication
-                    includes the use of a variety of vocalizations (mewing, purring, trilling, hissing, growling, and grunting),
-                    as well as cat pheromones and types of cat-specific body language.[7]
+                    Once you have installed the preview-card via npm, add content to the front and back slots. The component will automatically
+                    handle displaying content on the front and will 'flip' to display content on the back when hovered or
+                    clicked.
+                </p>
+                <p>
+                    This behavior (flip on hover) is modifiable via the flip-on-hover prop. Set flip-on-hover to false and the card will only
+                    flip when the user clicks the card. While you are not required to set a width and height, it's typically
+                    best to do so as the preview-card looks best when front and back are the same size. Simply set the width
+                    and height props and you're good to go!
+                </p>
+                <p>
+                    The preview-card was written in TypeScript and was intended to be flexible. Nearly all styling is accomplished by adding
+                    content in the front or back slots. Any additional styling that needs to be modified can be done by overriding
+                    the following classes: preview-card-front, preview-card-back summary-mask, summary-content and summary-button
+                    For more information, please see: http:github.com/wakecoder If you use the preview-card flip card, please
+                    let us know on our blog: <a href="http://www.wakecoder.com">www.wakecoder.com</a>                    or on twitter
+                    <a href="http://twitter.com/wakecoder">@wakecoder</a>
                 </p>
             </div>
         </preview-card>
-        <preview-card transition="flip" width="254" height="370">
+        <preview-card transition="flip" flip-on-hover="true" width="254" height="370">
             <div slot="front" class="card">
                 <img src="img/dog.png" width="254" height="300">
                 <div class="title">
@@ -74,21 +86,25 @@
             </div>
             <div slot="back" class="card">
                 <p>
-                    The domestic dog (Canis lupus familiaris or Canis familiaris)[2] is a domesticated canine which has been selectively bred
-                    over millennia for various behaviours, sensory capabilities, and physical attributes.[3] Although initially
-                    thought to have originated as an artificial variant of an extant canid species (variously supposed as
-                    being the dhole,[4] golden jackal,[5] or gray wolf[6]), extensive genetic studies undertaken during the
-                    2010s indicate that dogs diverged from an extinct wolf-like canid in Eurasia 40,000 years ago.[7] Their
-                    long association with humans has led to dogs being uniquely attuned to human behavior[8] and are able
-                    to thrive on a starch-rich diet which would be inadequate for other canid species.[9] Dogs are also the
-                    oldest domesticated animal. Dogs vary widely in shape, size and colours.[10] Dogs perform many roles
-                    for people, such as hunting, herding, pulling loads, protection, assisting police and military, companionship
-                    and, more recently, aiding handicapped individuals. This influence on human society has given them the
-                    sobriquet, "man's best friend".
+                    Vuejs is an excellent JavaScript framework that has a simple and extensible API. Its popularity has been growing significantly
+                    in the last several years. It has become one of the top three front-end JavaScript frameworks (Angular
+                    and React being the other two)
+                </p>
+                <p>
+                    The preview-card is a VueJs flip card component that allows you to add custom content to the front and back sides of the
+                    card. You can add content to the back of the card without concern for overflow. If you add more content
+                    than the card can display, a small banner is displayed at the button of the card along with a 'more'
+                    button
+                </p>
+                <p>
+                    Clicking the 'more' button causes a srollable modal to appear that contains all of the content. This is useful in many situations.
+                    For example, 'about us' tiles where the front is a picture and the back is a lengthy bio. Or, any situation
+                    where you want to provide more information on a particular topic and don't have enough space to display
+                    all of the content.
                 </p>
             </div>
         </preview-card>
-        <preview-card transition="flip" width="254" height="370" flip-on-hover="true">
+        <preview-card transition="flip" width="254" height="370">
             <div slot="front" class="card">
                 <img src="img/mouse.png" width="254" height="300">
                 <div class="title">
@@ -97,26 +113,30 @@
             </div>
             <div slot="back" class="card">
                 <p>
-                    A mouse (plural: mice) is a small rodent characteristically having a pointed snout, small rounded ears, a body-length scaly
-                    tail and a high breeding rate. The best known mouse species is the common house mouse (Mus musculus).
-                    It is also a popular pet. In some places, certain kinds of field mice are locally common. They are known
-                    to invade homes for food and shelter. Domestic mice sold as pets often differ substantially in size from
-                    the common house mouse. This is attributable both to breeding and to different conditions in the wild.
-                    The most well known strain, the white lab mouse, has more uniform traits that are appropriate to its
-                    use in research. The American white-footed mouse (Peromyscus leucopus) and the deer mouse (Peromyscus
-                    maniculatus), as well as other common species of mouse-like rodents around the world, also sometimes
-                    live in houses. These, however, are in other genera. Cats, wild dogs, foxes, birds of prey, snakes and
-                    even certain kinds of arthropods have been known to prey heavily upon mice. Nevertheless, because of
-                    its remarkable adaptability to almost any environment, the mouse is one of the most successful mammalian
-                    genera living on Earth today. Mice can at times be vermin, damaging and eating crops,[1] causing structural
-                    damage and spreading diseases through their parasites and feces.[2] In North America, breathing dust
-                    that has come in contact with mouse excrement has been linked to hantavirus, which may lead to hantavirus
-                    pulmonary syndrome (HPS).
+                    <h3>Additional Options</h3>
+                    <h4>One-sided</h4>
+                    <p>
+                        If you do not set any content in the front slot, the preview-card will display a tile with a 'more' button and scrolling
+                        modal when cotent overflows.
+                    </p>
+                    <h4>Props</h4>
+                    <ul>
+                        <li>
+                            <i>width</i> - specifies the width of the card (pixels or percent)
+                        </li>
+                        <li>
+                            <i>height</i> - specifies the height of the card (pixels or percent)
+                        </li>
+                        <li>
+                            <i>flip-on-hover</i> - specifies whether the preview-card flip card should flip when the mouse
+                            passes over the card
+                        </li>
+                    </ul>
                 </p>
             </div>
         </preview-card>
     </div>
     <script src="../dist/preview-card.example.js" type="text/javascript"></script>
-</body>
+    </body>
 
-</html>
+    </html>

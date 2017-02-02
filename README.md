@@ -3,7 +3,7 @@ A sizable, skinnable Vue.js card component that provides a button for modal disp
 
 ## Demo
 
-Coming soon... In the meantime check out the example in example/index.html at https://github.com/wakecoder/preview-card
+View a demo at the [wakecoder blog](http://www.codeofmanycolors.com/blog/preview-card-a-flip-card-with-automatic-overflow-handling/) or check out the code in the example folder
 
 ## Usage
 Install, require and put in your HTML.  See below for more detail:
