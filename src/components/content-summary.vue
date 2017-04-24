@@ -1,25 +1,12 @@
 <template>
-    <div class="content-summary" v-bind:style="{
-        position: 'relative',
-        width: width,
-        height: height,
-        overflow: 'hidden'
-        }">
+    <div class="content-summary" v-bind:style="contentSummaryStyle">
         <slot name="content"></slot>
         <!--A gradient transparency mask to fade out text if we're overflowed.-->
-        <div v-if="isOverflowed && !isModalVisible" class="summary-mask" v-bind:style=" {
-                position: 'absolute',
-                bottom: '0px',
-                width: width
-            }">
-            <a v-if="isOverflowed && !isModalVisible" @click.stop="isModalVisible=true" class="summary-btn">
-                   More
-            </a>
+        <div v-if="isOverflowed" class="summary-mask" v-bind:style="summaryMaskStyle">
+            <a @click.stop="isModalVisible=true" class="summary-btn"> More</a>
         </div>
-    
-        <modal :show='isModalVisible' v-on:close="isModalVisiable=false">
+        <modal v-on:close="isModalVisible=false" :show="isModalVisible">
             <div slot="body">
-                <!--hello-->
                 <slot name="content"></slot>
             </div>
         </modal>
@@ -55,7 +42,19 @@ export default {
     data: function () {
         return {
             isOverflowed: false,
-            isModalVisible: false
+            isModalVisible: false,
+            contentSummaryStyle:
+            {
+                position: 'relative',
+                width: this.width,
+                height: this.height,
+                overflow: 'hidden'
+            },
+            summaryMaskStyle: {
+                position: 'absolute',
+                bottom: '0px',
+                width: this.width
+            }
         }
     },
     props: ['height', 'width'],

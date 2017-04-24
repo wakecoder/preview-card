@@ -1,45 +1,23 @@
 <template>
-    <div class="outer-container" :style="{
-        width: styleWidth,
-        height: styleHeight
-    }">
-        <div @click="click" @mouseover="mouseOver" @mouseleave="mouseLeave" @touchstart="touchStart" class="preview-card-container" :style="{ 
-                                        cursor: !oneSided ? 'pointer' : null
-                                    }">
-            <transition :name="transition">
-                <div class="animated preview-card-front" :style="{
-                                        width: styleWidth,
-                                        height: styleHeight
-                                        }" v-if="isFrontVisible" :transition="transition">
-                    <slot name="front" style="{
-                                            width: styleWidth,
-                                            heigh: styleHeight}">
-                    </slot>
-                </div>
-            </transition>
-            <transition :name="transition">
-                <div class="animated preview-card-back" :style="{
-                                        width: styleWidth,
-                                        height: styleHeight,
-                                        position: 'relative'
-                                        }" v-if="!isFrontVisible" :transition="transition">
-                    <content-summary :width="styleWidth" :height="styleHeight">
-                        <div slot="content">
-                            <slot name="back"></slot>
-                        </div>
-                    </content-summary>
-                </div>
-            </transition>
+    <div class="outer-container" :style="styleSize">
+        <div @click="click" @mouseover="mouseOver" @mouseleave="mouseLeave" @touchstart="touchStart" class="preview-card-container" :style="previewCardContainerStyle">
+            <div class="animated preview-card-front" :style="styleSize" v-if="isFrontVisible" :transition="transition">
+                <slot name="front">
+                </slot>
+            </div>
+            <div class="animated preview-card-back" :style="styleSize" v-if="!isFrontVisible" :transition="transition">
+                <content-summary :width="styleSize.width" :height="styleSize.height">
+                    <template slot="content" scope="childProps">
+                        <slot name="back"></slot>
+                    </template>
+                </content-summary>
+            </div>
         </div>
     </div>
 </template>
 <style>
 .deleted {
     display: none;
-}
-
-.outer-container {
-    background-color: red;
 }
 
 .preview-card-container {
@@ -79,7 +57,10 @@ export default {
     name: 'preview-card',
     data: function () {
         return {
-            isFrontVisible: !this.oneSided
+            isFrontVisible: !this.oneSided,
+            previewCardContainerStyle: {
+                cursor: !this.oneSided ? 'pointer' : null
+            }
         }
     },
     props: {
@@ -100,7 +81,6 @@ export default {
             }
         },
         click: function () {
-            console.log(this.isFrontVisible + ' = frontVisible ' + this.flipOnHover + ' = fliponhover')
             this.flipOnHover = false // Disable hover flipping if the user clicks
             this.flip()
         },
@@ -119,13 +99,11 @@ export default {
         }
     },
     computed: {
-        styleWidth: function () { // By default, assume pixel width.
-            if (!isNaN(this.width)) { return addPx(this.width) }
-            return this.width
-        },
-        styleHeight: function () { // By default assume pixel height
-            if (!isNaN(this.height)) { return addPx(this.height) }
-            return this.height
+        styleSize: function () {
+            return {
+                width: !isNaN(this.width) ? addPx(this.width) : this.width,
+                height: !isNaN(this.height) ? addPx(this.height) : this.height
+            }
         }
     },
     components: {

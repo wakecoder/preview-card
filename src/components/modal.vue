@@ -9,7 +9,7 @@
                         </slot>
                     </div>
                     <div class="modal-footer">
-                        <button class="modal-default-button btn" @click="$emit('close')">
+                        <button class="modal-default-button btn" @click.stop="$emit('close')">
                             Close
                         </button>
                     </div>
