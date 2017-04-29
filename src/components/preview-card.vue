@@ -22,7 +22,6 @@
 
 .preview-card-container {
     margin-bottom: 60px;
-    /*display: inline-block;*/
     background: transparent;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -60,7 +59,10 @@ export default {
             isFrontVisible: !this.oneSided,
             previewCardContainerStyle: {
                 cursor: !this.oneSided ? 'pointer' : null
-            }
+            },
+            // Once the user clicks, we inhibit flip-on-hover to
+            // prevent corner-case bugs with some browsers that don't support touch events
+            stopFlipOnHover: false
         }
     },
     props: {
@@ -81,21 +83,21 @@ export default {
             }
         },
         click: function () {
-            this.flipOnHover = false // Disable hover flipping if the user clicks
+            this.stopFlipOnHover = true // Disable hover flipping if the user clicks
             this.flip()
         },
         mouseOver: function () {
-            if (this.flipOnHover && this.isFrontVisible) {
+            if (this.flipOnHover && this.isFrontVisible && !this.stopFlipOnHover) {
                 this.flip()
             }
         },
         mouseLeave: function () {
-            if (this.flipOnHover && !this.isFrontVisible) {
+            if (this.flipOnHover && !this.isFrontVisible && !this.stopFlipOnHover) {
                 this.flip()
             }
         },
         touchStart: function () {
-            this.flipOnHover = false
+            this.stopFlipOnHover = true
         }
     },
     computed: {
