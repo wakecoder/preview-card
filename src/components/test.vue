@@ -9,17 +9,17 @@
         <div id="exampleApp" class="container">
             <preview-card class="preview-card-padding" transition="fade" flip-on-hover="true" width="254" height="370">
                 <div slot="front" class="card">
-                    <fade-transition>
+                    <flip-transition>
                         <div>
                             <img src="static/cat.png" width="254" height="300">
                             <div class="title">
                                 CAT
                             </div>
                         </div>
-                    </fade-transition>
+                    </flip-transition>
                 </div>
                 <template slot="back" class="card" scope="ignore">
-                    <fade-transition>
+                    <flip-transition>
                         <div>
                             <p>
                                 Once you have installed the preview-card via npm, add content to the front and back slots. The component will automatically handle displaying content on the front and will 'flip' to display content on the back when hovered or clicked.
@@ -32,55 +32,71 @@
                                 <a href="http://twitter.com/wakecoder">@wakecoder</a>
                             </p>
                         </div>
-                    </fade-transition>
+                    </flip-transition>
                 </template>
             </preview-card>
             <preview-card class="preview-card-padding" transition="flip" flip-on-hover="true" width="254" height="370">
                 <div slot="front" class="card">
-                    <img src="static/dog.png" width="254" height="300">
-                    <div class="title">
-                        DOG
-                    </div>
+                    <bounce-transition>
+                        <div>
+                            <img src="static/dog.png" width="254" height="300">
+                            <div class="title">
+                                DOG
+                            </div>
+                        </div>
+                    </bounce-transition>
                 </div>
                 <template slot="back" class="card" scope="ignore">
-                    <p>
-                        Vuejs is an excellent JavaScript framework that has a simple and extensible API. Its popularity has been growing significantly in the last several years. It has become one of the top three front-end JavaScript frameworks (Angular and React being the other two)
-                    </p>
-                    <p>
-                        The preview-card is a VueJs flip card component that allows you to add custom content to the front and back sides of the card. You can add content to the back of the card without concern for overflow. If you add more content than the card can display, a small banner is displayed at the button of the card along with a 'more' button
-                    </p>
-                    <p>
-                        Clicking the 'more' button causes a srollable modal to appear that contains all of the content. This is useful in many situations. For example, 'about us' tiles where the front is a picture and the back is a lengthy bio. Or, any situation where you want to provide more information on a particular topic and don't have enough space to display all of the content.
-                    </p>
+                    <bounce-transition>
+                        <div>
+                            <p>
+                                Vuejs is an excellent JavaScript framework that has a simple and extensible API. Its popularity has been growing significantly in the last several years. It has become one of the top three front-end JavaScript frameworks (Angular and React being the other two)
+                            </p>
+                            <p>
+                                The preview-card is a VueJs flip card component that allows you to add custom content to the front and back sides of the card. You can add content to the back of the card without concern for overflow. If you add more content than the card can display, a small banner is displayed at the button of the card along with a 'more' button
+                            </p>
+                            <p>
+                                Clicking the 'more' button causes a srollable modal to appear that contains all of the content. This is useful in many situations. For example, 'about us' tiles where the front is a picture and the back is a lengthy bio. Or, any situation where you want to provide more information on a particular topic and don't have enough space to display all of the content.
+                            </p>
+                        </div>
+                    </bounce-transition>
                 </template>
             </preview-card>
             <preview-card class="preview-card-padding" transition="flip" width="254" height="370">
                 <div slot="front" class="card">
-                    <img src="static/mouse.png" width="254" height="300">
-                    <div class="title">
-                        MOUSE
-                    </div>
+                    <fade-transition>
+                        <div>
+                            <img src="static/mouse.png" width="254" height="300">
+                            <div class="title">
+                                MOUSE
+                            </div>
+                        </div>
+                    </fade-transition>
                 </div>
                 <template slot="back" class="card" scope="ignore">
-                    <p>
-                        <h3>Additional Options</h3>
-                        <h4>One-sided</h4>
-                        <p>
-                            If you do not set any content in the front slot, the preview-card will display a tile with a 'more' button and scrolling modal when cotent overflows.
-                        </p>
-                        <h4>Props</h4>
-                        <ul>
-                            <li>
-                                <i>width</i> - specifies the width of the card (pixels or percent)
-                            </li>
-                            <li>
-                                <i>height</i> - specifies the height of the card (pixels or percent)
-                            </li>
-                            <li>
-                                <i>flip-on-hover</i> - specifies whether the preview-card flip card should flip when the mouse passes over the card
-                            </li>
-                        </ul>
-                    </p>
+                    <fade-transition>
+                        <div>
+                            <p>
+                                <h3>Additional Options</h3>
+                                <h4>One-sided</h4>
+                                <p>
+                                    If you do not set any content in the front slot, the preview-card will display a tile with a 'more' button and scrolling modal when cotent overflows.
+                                </p>
+                                <h4>Props</h4>
+                                <ul>
+                                    <li>
+                                        <i>width</i> - specifies the width of the card (pixels or percent)
+                                    </li>
+                                    <li>
+                                        <i>height</i> - specifies the height of the card (pixels or percent)
+                                    </li>
+                                    <li>
+                                        <i>flip-on-hover</i> - specifies whether the preview-card flip card should flip when the mouse passes over the card
+                                    </li>
+                                </ul>
+                            </p>
+                        </div>
+                    </fade-transition>
                 </template>
             </preview-card>
         </div>
@@ -115,10 +131,14 @@ p {
 <script>
 import previewCard from './preview-card.vue'
 import fadeTransition from './fade-transition.vue'
+import flipTransition from './flip-transition.vue'
+import bounceTransition from './bounce-transition.vue'
 export default {
     components: {
         previewCard,
-        fadeTransition
+        fadeTransition,
+        flipTransition,
+        bounceTransition
     }
 }
 

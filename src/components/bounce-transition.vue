@@ -1,6 +1,6 @@
 <template>
-    <transition name="bounce">
-        <slot class="animated"></slot>
+    <transition name="bounce" enter-active-class="animated bounceIn" leave-active-class="animated bounceOut">
+        <slot></slot>
     </transition>
 </template>
 <style src="./animate.css"></style>

@@ -1,11 +1,11 @@
 <template>
     <div class="outer-container" :style="styleSize">
         <div @click="click" @mouseover="mouseOver" @mouseleave="mouseLeave" @touchstart="touchStart" class="preview-card-container" :style="previewCardContainerStyle">
-            <div class="animated preview-card-front" :style="styleSize" v-if="isFrontVisible" :transition="transition">
+            <div class="animated preview-card-front" :style="styleSize" v-if="isFrontVisible">
                 <slot name="front">
                 </slot>
             </div>
-            <div class="animated preview-card-back" :style="styleSize" v-if="!isFrontVisible" :transition="transition">
+            <div class="animated preview-card-back" :style="styleSize" v-if="!isFrontVisible">
                 <content-summary :width="styleSize.width" :height="styleSize.height">
                     <template slot="content" scope="childProps">
                         <slot name="back"></slot>
@@ -71,9 +71,6 @@ export default {
         },
         width: null,
         height: null,
-        transition: {
-            default: 'flip'
-        },
         'flip-on-hover': false
     },
     methods: {
