@@ -1,8 +1,11 @@
 {
   "name": "preview-card",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A sizable, skinnable tile that provides a button for modal display of overflowed content when it's present.",
   "author": "wakecoder",
+  "files": [
+    "src/components/*"
+  ],
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",

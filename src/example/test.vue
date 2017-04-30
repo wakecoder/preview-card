@@ -129,10 +129,10 @@ p {
 }
 </style>
 <script>
-import previewCard from './preview-card.vue'
-import fadeTransition from './fade-transition.vue'
-import flipTransition from './flip-transition.vue'
-import bounceTransition from './bounce-transition.vue'
+import previewCard from '../preview-card.vue'
+import fadeTransition from '../fade-transition.vue'
+import flipTransition from '../flip-transition.vue'
+import bounceTransition from '../bounce-transition.vue'
 export default {
     components: {
         previewCard,
