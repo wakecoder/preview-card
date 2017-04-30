@@ -3,7 +3,6 @@
   "version": "2.0.0",
   "description": "A sizable, skinnable tile that provides a button for modal display of overflowed content when it's present.",
   "author": "wakecoder",
-  "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
