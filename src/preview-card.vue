@@ -36,9 +36,6 @@
 
 .preview-card-front {
     overflow: hidden;
-    /*position: absolute;*/
-    top: 0;
-    left: 0;
 }
 </style>
 <style src="./animate.css"></style>
