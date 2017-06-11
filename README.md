@@ -6,7 +6,7 @@ A sizable, skinnable Vue.js card component that provides a button for modal disp
 View a demo at the [wakecoder blog](http://www.codeofmanycolors.com/blog/preview-card-a-flip-card-with-automatic-overflow-handling/) or check out the code in the example folder
 
 ## Usage
-Install, require (or import) and put in your HTML.  See below for more detail:
+Install, require (or import) and put in your HTML.  NOTE: In most cases you will want to specify a height for the card so the front and back are the same size. This can be done via CSS. See below for more detail:
 ##### 1. In a shell
 ```shell
 npm install --save-dev preview-card
@@ -27,13 +27,13 @@ const vue = new Vue ({
 
 ##### 3. In your HTML
 ``` html
-<preview-card transition="fade" width="200px" height="400px">
-    <div slot="front">
+<preview-card transition="fade" style="height: 340px">
+    <template slot="front" scope="ignore">
         Front content here
-    </div>
-    <div slot="back">
+    </template>
+    <template slot="back" scope="ignore">
         Back content here
-    </div>
+    </template>
 </preview-card>
 ```
 

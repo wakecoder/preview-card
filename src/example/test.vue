@@ -8,7 +8,7 @@
     
         <div id="exampleApp" class="container">
             <preview-card class="preview-card-padding fixed-card" transition="fade" flip-on-hover="true">
-                <div slot="front" class="card">
+                <template slot="front" class="card" scope="ignore">
                     <flip-transition>
                         <div>
                             <img src="static/cat.png" width="254" height="300">
@@ -17,7 +17,7 @@
                             </div>
                         </div>
                     </flip-transition>
-                </div>
+                </template>
                 <template slot="back" class="card" scope="ignore">
                     <flip-transition>
                         <div>
@@ -36,7 +36,7 @@
                 </template>
             </preview-card>
             <preview-card class="preview-card-padding fixed-card" transition="flip" flip-on-hover="true">
-                <div slot="front" class="card">
+                <template slot="front" class="card" scope="ignore">
                     <bounce-transition>
                         <div>
                             <img src="static/dog.png" width="254" height="300">
@@ -45,7 +45,7 @@
                             </div>
                         </div>
                     </bounce-transition>
-                </div>
+                </template>
                 <template slot="back" class="card" scope="ignore">
                     <bounce-transition>
                         <div>
@@ -63,7 +63,7 @@
                 </template>
             </preview-card>
             <preview-card class="preview-card-padding fixed-card" transition="flip">
-                <div slot="front" class="card">
+                <template slot="front" class="card" scope="ignore">
                     <fade-transition>
                         <div>
                             <img src="static/mouse.png" width="254" height="300">
@@ -72,7 +72,7 @@
                             </div>
                         </div>
                     </fade-transition>
-                </div>
+                </template>
                 <template slot="back" class="card" scope="ignore">
                     <fade-transition>
                         <div>
@@ -108,8 +108,8 @@
 }
 
 .fixed-card {
-    height: 200px;
-    width: 254px;
+    max-height: 340px;
+    width: 40%;
 }
 
 .container {

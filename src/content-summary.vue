@@ -1,10 +1,10 @@
 <template>
     <div class="content-summary">
+        <slot name="content"></slot>
         <!--A gradient transparency mask to fade out text if we're overflowed.-->
         <div v-if="isOverflowed" @click.stop="isModalVisible=true" class="summary-mask" :style="{ top: maskTop + 'px', height: maskHeight + 'px' }">
             <span class="summary-btn"> More</span>
         </div>
-        <slot name="content"></slot>
         <modal v-on:close="isModalVisible=false" :show="isModalVisible">
             <div slot="body">
                 <slot name="content"></slot>
@@ -58,7 +58,6 @@ export default {
     },
     computed: {
         maskTop() {
-            console.log('overflowheight=' + this.overflowHeight)
             return this.overflowHeight - this.maskHeight - 10
         }
     },
