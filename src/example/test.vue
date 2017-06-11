@@ -7,7 +7,7 @@
         </p>
     
         <div id="exampleApp" class="container">
-            <preview-card class="preview-card-padding" transition="fade" flip-on-hover="true" width="254" height="370">
+            <preview-card class="preview-card-padding fixed-card" transition="fade" flip-on-hover="true">
                 <div slot="front" class="card">
                     <flip-transition>
                         <div>
@@ -35,7 +35,7 @@
                     </flip-transition>
                 </template>
             </preview-card>
-            <preview-card class="preview-card-padding" transition="flip" flip-on-hover="true" width="254" height="370">
+            <preview-card class="preview-card-padding fixed-card" transition="flip" flip-on-hover="true">
                 <div slot="front" class="card">
                     <bounce-transition>
                         <div>
@@ -62,7 +62,7 @@
                     </bounce-transition>
                 </template>
             </preview-card>
-            <preview-card class="preview-card-padding" transition="flip" width="254" height="370">
+            <preview-card class="preview-card-padding fixed-card" transition="flip">
                 <div slot="front" class="card">
                     <fade-transition>
                         <div>
@@ -105,6 +105,11 @@
 <style>
 .preview-card-padding {
     padding: 10px;
+}
+
+.fixed-card {
+    height: 200px;
+    width: 254px;
 }
 
 .container {

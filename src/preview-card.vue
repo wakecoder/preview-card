@@ -1,19 +1,17 @@
 <template>
-    <div class="outer-container" :style="styleSize">
-        <div @click="click" @mouseover="mouseOver" @mouseleave="mouseLeave" @touchstart="touchStart" class="preview-card-container" :style="previewCardContainerStyle">
-            <div class="animated preview-card-front" :style="styleSize" v-if="isFrontVisible">
+        <div @click="click" @mouseover="mouseOver" @mouseleave="mouseLeave" @touchstart="touchStart" class="preview-card-container">
+            <div class="animated preview-card-front" v-if="isFrontVisible">
                 <slot name="front">
                 </slot>
             </div>
-            <div class="animated preview-card-back" :style="styleSize" v-if="!isFrontVisible">
-                <content-summary :width="styleSize.width" :height="styleSize.height">
+            <div class="animated preview-card-back" v-if="!isFrontVisible">
+                <content-summary :overflowHeight="overflowHeight">
                     <template slot="content" scope="childProps">
                         <slot name="back"></slot>
                     </template>
                 </content-summary>
             </div>
         </div>
-    </div>
 </template>
 <style>
 .deleted {
@@ -26,18 +24,19 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     position: relative;
+    overflow: hidden;
 }
 
 .preview-card-back {
     overflow: hidden;
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
 }
 
 .preview-card-front {
     overflow: hidden;
-    position: absolute;
+    /*position: absolute;*/
     top: 0;
     left: 0;
 }
@@ -47,19 +46,11 @@
 import modal from './modal.vue'
 import contentSummary from './content-summary.vue'
 
-// Used if the user puts in a width or height without specifying pixels.
-function addPx(number) {
-    return number + 'px'
-}
-
 export default {
     name: 'preview-card',
     data: function () {
         return {
             isFrontVisible: !this.oneSided,
-            previewCardContainerStyle: {
-                cursor: !this.oneSided ? 'pointer' : null
-            },
             // Once the user clicks, we inhibit flip-on-hover to
             // prevent corner-case bugs with some browsers that don't support touch events
             stopFlipOnHover: false
@@ -69,8 +60,6 @@ export default {
         'one-sided': {
             default: false
         },
-        width: null,
-        height: null,
         'flip-on-hover': false
     },
     methods: {
@@ -97,18 +86,14 @@ export default {
             this.stopFlipOnHover = true
         }
     },
-    computed: {
-        styleSize: function () {
-            return {
-                width: !isNaN(this.width) ? addPx(this.width) : this.width,
-                height: !isNaN(this.height) ? addPx(this.height) : this.height
-            }
-        }
-    },
     components: {
         modal,
         contentSummary
+    },
+    computed: {
+        overflowHeight() {
+            return this.$el.clientHeight
+        }
     }
 }
-
 </script>
