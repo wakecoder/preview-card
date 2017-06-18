@@ -1,17 +1,17 @@
 <template>
-        <div @click="click" @mouseover="mouseOver" @mouseleave="mouseLeave" @touchstart="touchStart" class="preview-card-container">
-            <div class="animated preview-card-front" v-if="isFrontVisible">
-                <slot name="front">
-                </slot>
-            </div>
-            <div class="animated preview-card-back" v-if="!isFrontVisible">
-                <content-summary :overflowHeight="overflowHeight">
-                    <template slot="content" scope="childProps">
-                        <slot name="back"></slot>
-                    </template>
-                </content-summary>
-            </div>
+    <div @click="click" @mouseover="mouseOver" @mouseleave="mouseLeave" @touchstart="touchStart" class="preview-card-container">
+        <div class="animated preview-card-front" v-if="isFrontVisible">
+            <slot name="front">
+            </slot>
         </div>
+        <div class="animated preview-card-back" v-if="!isFrontVisible">
+            <content-summary :overflowHeight="overflowHeight">
+                <template slot="content" scope="childProps">
+                    <slot name="back"></slot>
+                </template>
+            </content-summary>
+        </div>
+    </div>
 </template>
 <style>
 .deleted {
@@ -36,6 +36,8 @@
 
 .preview-card-front {
     overflow: hidden;
+    top: 0;
+    left: 0;
 }
 </style>
 <style src="./animate.css"></style>
@@ -50,8 +52,12 @@ export default {
             isFrontVisible: !this.oneSided,
             // Once the user clicks, we inhibit flip-on-hover to
             // prevent corner-case bugs with some browsers that don't support touch events
-            stopFlipOnHover: false
+            stopFlipOnHover: false,
+            overflowHeight: 0
         }
+    },
+    mounted() {
+        this.overflowHeight = this.$el.clientHeight
     },
     props: {
         'one-sided': {
@@ -86,11 +92,6 @@ export default {
     components: {
         modal,
         contentSummary
-    },
-    computed: {
-        overflowHeight() {
-            return this.$el.clientHeight
-        }
     }
 }
 </script>
