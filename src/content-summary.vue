@@ -58,7 +58,7 @@ export default {
     },
     computed: {
         maskTop() {
-            return this.overflowHeight - this.maskHeight - 10
+            return this.overflowHeight - this.maskHeight
         }
     },
     components: {

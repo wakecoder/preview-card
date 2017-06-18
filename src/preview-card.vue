@@ -26,13 +26,13 @@
     position: relative;
     overflow: hidden;
 }
-
+/*
 .preview-card-back {
     overflow: hidden;
     position: relative;
     top: 0;
     left: 0;
-}
+}*/
 
 .preview-card-front {
     overflow: hidden;
